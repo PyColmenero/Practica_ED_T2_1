@@ -11,29 +11,39 @@ public class TestBanco {
 		Cuenta cuentaBeatriz = new Cuenta(62342, 100, beatriz);
  
 		/* Antonio y Beatriz consultan el saldo */
-		System.out.println("La cuenta de " + cuentaAntonio.getCliente().getNombre() + " tiene "
-				+ cuentaAntonio.getSaldo() + " euros.");
-		System.out.println("La cuenta de " + cuentaBeatriz.getCliente().getNombre() + " tiene "
-				+ cuentaBeatriz.getSaldo() + " euros.");
+		muestra_saldo(cuentaAntonio);
+		muestra_saldo(cuentaBeatriz);
  
 		/* Beatriz transfiere 50€ a Antonio */
-		cuentaBeatriz.setSaldo(cuentaBeatriz.getSaldo() - 50);
-		cuentaAntonio.setSaldo(cuentaAntonio.getSaldo() + 50);
+		transferencia(cuentaBeatriz, cuentaAntonio, 50);
  
 		/* Antonio y Beatriz vuelven a consultar para comprobar que todo ha ido bien */
-		System.out.println("La cuenta de " + cuentaAntonio.getCliente().getNombre() + " tiene "
-				+ cuentaAntonio.getSaldo() + " euros.");
-		System.out.println("La cuenta de " + cuentaBeatriz.getCliente().getNombre() + " tiene "
-				+ cuentaBeatriz.getSaldo() + " euros.");
+		muestra_saldo(cuentaAntonio);
+		muestra_saldo(cuentaBeatriz);
  
 		/* Antonio gana 100€ en una rifa y hace un ingreso en su cuenta */
-		cuentaAntonio.setSaldo(cuentaAntonio.getSaldo() + 100);
+		cambio_saldo(cuentaAntonio, 100);
  
 		/* Beatriz tiene que pagar 30€ a hacienda y retira el dinero */
-		cuentaBeatriz.setSaldo(cuentaBeatriz.getSaldo() - 30);
+		cambio_saldo(cuentaBeatriz, -30);
  
 		/* Antonio transfiere 50€ a Beatriz */
-		cuentaAntonio.setSaldo(cuentaAntonio.getSaldo() - 50);
-		cuentaBeatriz.setSaldo(cuentaBeatriz.getSaldo() + 50);
+		transferencia(cuentaAntonio, cuentaBeatriz, 50);
 	}
+
+	private static void transferencia(Cuenta cuentaRetirar, Cuenta cuentaIngresar, int dinero) {
+		cambio_saldo(cuentaRetirar, -dinero);
+		cambio_saldo(cuentaIngresar, dinero);
+	}
+
+	private static void cambio_saldo(Cuenta cuenta, int dinero) {
+		// TODO Auto-generated method stub
+		cuenta.setSaldo(cuenta.getSaldo() + dinero);
+		
+	}
+
+	private static void muestra_saldo(Cuenta cuenta) {
+		System.out.println("La cuenta de " + (cuenta.getCliente().getNombre()) + " tiene " + cuenta.getSaldo() + " euros.");
+	}
+	
 }
