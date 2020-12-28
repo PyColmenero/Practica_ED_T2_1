@@ -36,6 +36,7 @@ public class TestBanco {
 		transferencia(cuentaAntonio, cuentaBeatriz, 50);
 	}
 
+
 	/**
 	 * quita dinero a una cuenta, y le suma a otra
 	 * @param cuentaRetirar => cuenta que hace la transaccion
@@ -48,7 +49,7 @@ public class TestBanco {
 	}
 
 	/**
-	 *  para retirar o añadir dinero a la ceutna
+	 * para retirar o añadir dinero a la ceutna
 	 * @param cuenta => cuenta a la que efectuar el cambio
 	 * @param dinero => cantidad de dinero, ya sea positivo para ingresar o negativo para quitar
 	 */
