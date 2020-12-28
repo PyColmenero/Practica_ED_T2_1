@@ -36,7 +36,6 @@ public class TestBanco {
 		transferencia(cuentaAntonio, cuentaBeatriz, 50);
 	}
 
-
 	/**
 	 * quita dinero a una cuenta, y le suma a otra
 	 * @param cuentaRetirar => cuenta que hace la transaccion
